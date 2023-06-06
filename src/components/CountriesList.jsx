@@ -1,14 +1,16 @@
-import React from 'react'
+import {useState} from 'react'
 import { countries } from '../data'
 import { CountriesCard } from './CountriesCard';
 import '../App.css'
-export const CountriesList = () => {
+export const CountriesList = ({data, setcountry}) => {
+ 
   return (
     <div className='wrapper'>
         {
-            countries.map(({name, capital, population, region, flags} = country) => {
+            data.map(( country) => {
                 return <CountriesCard key={Math.random()}
-                name={name} population={population} capital={capital} region={region} flags={flags}
+                country={country}
+                setcountry={setcountry}
                 />
             })
         }
